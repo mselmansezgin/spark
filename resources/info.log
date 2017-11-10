@@ -1,0 +1,17 @@
+2017-08-22 14:32:33 [restartedMain] INFO  c.e.d.f.FetchdeliverApplication - Starting FetchdeliverApplication on SELMANS-WEB.local with PID 3511 (/Users/selman.sezgin/Projects/r2d2/projects/fetch_deliver/target/classes started by selman.sezgin in /Users/selman.sezgin/Projects/r2d2/projects/fetch_deliver)
+2017-08-22 14:32:33 [restartedMain] INFO  c.e.d.f.FetchdeliverApplication - No active profile set, falling back to default profiles: default
+2017-08-22 14:32:41 [restartedMain] INFO  c.e.d.f.FetchdeliverApplication - Started FetchdeliverApplication in 7.889 seconds (JVM running for 9.034)
+2017-08-22 14:32:51 [http-nio-0.0.0.0-8080-exec-1] INFO  c.e.d.f.controller.ReportController - closedOut Called
+2017-08-22 14:32:51 [http-nio-0.0.0.0-8080-exec-1] INFO  c.e.d.f.controller.ReportController - SQL :  select  hotel_id,
+         presentationid,
+         hotel_name,
+         account_manager,
+         region_name,
+         country_id,
+         account_manager_id,
+         count(*) as closedDayCount 
+   from ets_closed_out_list_v lv
+  where to_date( lv.available_date ) between '2017-07-01' and '2017-08-31'
+    and lv.country_id = '57c0822152faff0039eaeb78'
+group by hotel_id,presentationid,hotel_name,account_manager,region_name,country_id,account_manager_id
+
